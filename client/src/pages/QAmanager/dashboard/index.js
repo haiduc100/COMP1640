@@ -85,7 +85,7 @@ const Dashboard = () => {
                                     <img src={Networking} alt="" />
                                 </div>
                             </div>
-                            <div className="dashboard-statistical__number">5</div>
+                            <div className="dashboard-statistical__number">8</div>
                         </div>
                     </Grid>
                 </Grid>
@@ -93,7 +93,7 @@ const Dashboard = () => {
                     <Grid item md={8} xs={12}>
                         <div className="dashboard-statistical__bar-chart1">
                             <div className="bar-chart__title">
-                                Number of ideas per department compared to current topic
+                                Top 10 Staff which have highest likeCount
                             </div>
                             <BarChart />
                         </div>
@@ -101,44 +101,13 @@ const Dashboard = () => {
                     <Grid item md={4} xs={12}>
                         <div className="dashboard-statistical__pie-chart1">
                             <div className="pie-chart__title">
-                                Number of ideas by each department compared to this year
+                                Top 5 topic which have highest ideas
                             </div>
                             <PieChart />
                         </div>
                     </Grid>
                     <Grid item xs={12} >
                         <div className="dashboard-statistical__line-chart1">
-                            <div className="line-chart__filter">
-                                <FormControl sx={{ width: '200px', zIndex: '0' }}>
-                                    <InputLabel id="demo-simple-select-label">Year</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={year}
-                                        label="Age"
-                                        onChange={e => setYear(e.target.value)}
-                                    >
-                                        <MenuItem value={2022}>2022</MenuItem>
-                                        <MenuItem value={2021}>2021</MenuItem>
-                                        <MenuItem value={2020}>2020</MenuItem>
-                                        <MenuItem value={2019}>2019</MenuItem>
-                                    </Select>
-                                </FormControl>
-                                <FormControl sx={{ width: '200px', zIndex: '0' }}>
-                                    <InputLabel id="demo-simple-select-label">Month</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={month}
-                                        label="Age"
-                                        onChange={e => setMonth(e.target.value)}
-                                    >
-                                        {months.map(month => {
-                                            return <MenuItem key={month} value={month}>{month}</MenuItem>
-                                        })}
-                                    </Select>
-                                </FormControl>
-                            </div>
                             <div className="line-chart__title">
                                 Number of ideas by each department compared to the month of each year
                             </div>

@@ -15,6 +15,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { useNavigate } from 'react-router-dom';
 
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
@@ -33,6 +34,7 @@ const style = {
 };
 
 const CreatePost = () => {
+    let Navigate = useNavigate()
     const [files, setFiles] = React.useState([]);
     const [content, setContent] = React.useState('')
     const [checked, setChecked] = React.useState(false);
@@ -84,7 +86,7 @@ const CreatePost = () => {
         })
 
         formData.append("Author", user.userId)
-        formData.append("Title", 'ok')
+        formData.append("Title", Math.random())
         formData.append("Slug", 'ok')
         formData.append("Content", content)
         formData.append("Privacy", checked)
@@ -93,6 +95,9 @@ const CreatePost = () => {
         await createNewIdea(formData)
         handleClose()
         window.alert("Create idea successfully!")
+        setContent("")
+        setChecked(false)
+        setFiles([])
     }
     return (
         <>
@@ -175,7 +180,7 @@ const CreatePost = () => {
                         <Typography id="modal-modal-description" sx={{ mt: 2, textAlign: 'center' }}>
                             Before posting material, by clicking "accept", you agree to the terms and conditions on our
                             website as described in
-                            "<a href="http://google.com" target="_blank" rel="noreferrer">Our Terms and Conditions</a>"
+                            "<a href="/Terms-conditions" target="_blank" rel="noreferrer">Our Terms and Conditions</a>"
                             <p>Do you agree to the terms before posting the material?</p>
                         </Typography>
                         <div className="modal-button">

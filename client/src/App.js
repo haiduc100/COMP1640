@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import LoginPage from './pages/login';
 import AdminPage from './pages/admin';
 import HomePage from './pages/home';
+import PostingRules from './pages/home/PostingRules';
 import LandingPage from './pages/landing';
 import QAmanager from './pages/QAmanager';
 import QAcoordinator from './pages/QAcoordinator';
@@ -39,9 +40,12 @@ function App() {
                   <Route path="/admin" element={<ProtectedRouteAdmin redirectTo='/login'>
                     <AdminPage />
                   </ProtectedRouteAdmin>} />
+                  <Route path="/admin/popular-ideas" element={<AdminPage task='popularIdeas' />} />
                   <Route path="/admin/create" element={<AdminPage task='create' />} />
                   <Route path="/admin/viewAll" element={<AdminPage task='viewAll' />} />
                   <Route path="/admin/deadline" element={<AdminPage task='deadline' />} />
+                  <Route path="/admin/viewDeadline" element={<AdminPage task='viewDeadline' />} />
+                  <Route path="/admin/viewDetailDeadline" element={<AdminPage task='viewDeadlineDetail' />} />
                   <Route path="/admin/setting" element={<AdminPage task='changepassword' />} />
 
                   <Route path="/qa-manager" element={<ProtectedRouteQAManager redirectTo='/login'>
@@ -60,6 +64,7 @@ function App() {
                   <Route path="/postIdea" element={<HomePage task='postIdea' />} />
                   <Route path="/ideaDetail-home" element={<HomePage task='ideaDetail' />} />
                   <Route path="/change-password-homepage" element={<ChangePasswordHome />} />
+                  <Route path="/Terms-conditions" element={<PostingRules />} />
 
                   <Route path="/qa-coordinator" element={<ProtectedRouteQACoordinator redirectTo='/login'>
                     <QAcoordinator />

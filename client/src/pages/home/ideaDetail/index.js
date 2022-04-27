@@ -5,7 +5,6 @@ import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import Vote from '../Vote';
 import Comment from '../../QAmanager/ideaDetail/container/Comment';
-import Avatar from '@mui/material/Avatar';
 import { IdeaContext } from '../../../contexts/IdeaContext';
 import { ReactionContext } from '../../../contexts/ReactionContext';
 import { AuthContext } from '../../../contexts/AuthContext';
@@ -34,10 +33,10 @@ const IdeaDetail = () => {
     const dataComment = { comments, users: userState.users, idea, user }
 
     const downloadSingleFile = async (url) => {
-        await downloadFile(idea.id)
+        // await downloadFile(idea.id)
+        console.log(url);
         saveAs(
-            `https://localhost:5001/${url}`,
-            "example.docx"
+            `/${url}`
         );
     }
 
